@@ -4,8 +4,8 @@ def GpxToArray(file):
     trace=[]
     tree = ET.parse(file)
     root = tree.getroot()
-    #print("L'element racine : ", root.tag)
-    #print("Le premier enfant de la racine : ", root[1][1].tag)
+    #return("L'element racine : ", root.tag)
+    #return("Le premier enfant de la racine : ", root[1][1].tag)
     for a in root[1][1]:
         trace.append(a.attrib['lat'])
         trace.append(a.attrib['lon'])
@@ -14,8 +14,8 @@ def GpxToArray(file):
 def encadrement(trace,lat,lon):
     res = []
     cpt = 2
-    while (cpt<len(trace)-1) and (len(res)<4):
-        if (float(lat)<float(trace[cpt]) and float(lat)>float(trace[cpt-1])) and (float(lon)<float(trace[cpt]) and float(lon)>float(trace[cpt-1])):
+    while (cpt<len(trace)-2) and (len(res)<4):
+        if (float(lat)<=float(trace[cpt]) and float(lat)>=float(trace[cpt-2])) and (float(lon)<=float(trace[cpt+1]) and float(lon)>=float(trace[cpt-1])):
             #res.append(trace[cpt-2])
             #res.append(trace[cpt-1])
             res.append(trace[cpt])
@@ -27,47 +27,47 @@ def direction(pointSuivant,lat,lon,orientation):
     if (orientation>45) and (orientation<135):
         if abs(float(lat)-float(pointSuivant[0])) > abs(float(lon)-float(pointSuivant[1])):
             if (float(lat)-float(pointSuivant[0])) < 0:
-                print("tout droit")
+                return("tout droit")
             else:
-                print("demi-tour")
+                return("demi-tour")
         else:
             if (float(lon)-float(pointSuivant[1])) < 0:
-                print("a droite")
+                return("a droite")
             else:
-                print("a gauche")
+                return("a gauche")
     elif ((orientation>=0) and (orientation<=45)) or ((orientation>315) and (orientation<360)):
         if abs(float(lat)-float(pointSuivant[0])) > abs(float(lon)-float(pointSuivant[1])):
             if (float(lat)-float(pointSuivant[0])) < 0:
-                print("a droite")
+                return("a gauche")
             else:
-                print("a gauche")
+                return("a droite")
         else:
             if (float(lon)-float(pointSuivant[1])) < 0:
-                print("tout droit")
+                return("tout droit")
             else:
-                print("demi-tour")
+                return("demi-tour")
     elif (orientation>=135) and (orientation<225):
         if abs(float(lat)-float(pointSuivant[0])) > abs(float(lon)-float(pointSuivant[1])):
             if (float(lat)-float(pointSuivant[0])) < 0:
-                print("a gauche")
+                return("a gauche")
             else:
-                print("a droite")
+                return("a droite")
         else:
             if (float(lon)-float(pointSuivant[1])) < 0:
-                print("demi-tour")
+                return("demi-tour")
             else:
-                print("tout droit")
+                return("tout droit")
     elif (orientation>=225) and (orientation<=315):
         if abs(float(lat)-float(pointSuivant[0])) > abs(float(lon)-float(pointSuivant[1])):
             if (float(lat)-float(pointSuivant[0])) < 0:
-                print("demi-tour")
+                return("demi-tour")
             else:
-                print("tout droit")
+                return("tout droit")
         else:
             if (float(lon)-float(pointSuivant[1])) < 0:
-                print("a gauche")
+                return("a gauche")
             else:
-                print("a droite")
+                return("a droite")
 
 
 
