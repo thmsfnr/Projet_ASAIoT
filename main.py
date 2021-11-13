@@ -1,4 +1,6 @@
-import lectureGpx as nav
+from operationGPX import GPX
+import navigation as nav
+
 
 """
 # Selection trace

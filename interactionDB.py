@@ -54,5 +54,31 @@ class DB:
 
       self.cursor.commit()
 
+   def selectTraceWithName(self,nomTrace):
+      
+      self.cursor.execute("""
+         SELECT idTrace 
+         FROM Trace
+         WHERE nomTrace='%s';"""
+         % (nomTrace)
+      )
+      return self.cursor.fetchone()
+
+   def selectDataWithIdTrace(self,idTrace):
+       
+      self.cursor.execute("""
+         SELECT Data.latitude,Data.longitude 
+         FROM Data
+         INNER JOIN Trace 
+         ON Trace.idTrace = Data.idTrace
+         WHERE Trace.idTrace='%s'
+         ORDER BY Data.idData;"""
+         % (idTrace)
+      )
+      return self.cursor.fetchall()
+
    def close(self):
       self.database.close()
+
+
+  
