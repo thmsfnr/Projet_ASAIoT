@@ -1,5 +1,6 @@
 from operationGPX import GPX
-import navigation as nav
+from navigation import nav
+
 
 
 """
