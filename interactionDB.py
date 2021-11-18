@@ -77,6 +77,14 @@ class DB:
       )
       return self.cursor.fetchall()
 
+   def selectAllIdTrace(self):
+      self.cursor.execute("""
+         SELECT idTrace
+         FROM Trace 
+         ;"""
+      )
+      return self.cursor.fetch()
+
    def close(self):
       self.database.close()
 

@@ -1,3 +1,4 @@
+import time
 
 class nav:
 
@@ -72,13 +73,18 @@ class nav:
                 else:
                     return("a droite")
     
-    def navigation(self,trace,pos,orientation):
-        cpt=0
-        while (self.isFinish(trace,pos[cpt],pos[cpt+1]) == False):
-                pointSuivant = self.nextPoint(trace,pos[cpt],pos[cpt+1])
-                nav2i = self.direction(pointSuivant,pos[cpt],pos[cpt+1],orientation[cpt/2])
-                print(nav2i)
-                cpt += 2
+    def navigation(self,trace):
+        lat=0
+        lon=0
+        orientation=0
+        while (self.isFinish(trace,lat,lon) == False):
+            pointSuivant = self.nextPoint(trace,lat,lon)
+            nav2i = self.direction(pointSuivant,lat,lon,orientation)
+            print(nav2i)
+            time.sleep(2)
+            lat=0
+            lon=0
+            orientation=0
         print("Vous etes arrive")
 
 

@@ -5,9 +5,8 @@ import time
 
 stop = True
 listeTrace=[1]
-trace = [10,5,10,15,10,25,10,35,20,35,30,35,30,45,30,55]
-pos = [10,10,10,20,10,30,15,35,25,35,30,40,30,52,30,54]
-orientation=[0,0,0,0,90,90,0]
+file = ["2021-11-08_556784540_Test.gpx"]
+
 nav2 = nav()
 gpx2 = GPX()
 use = User()
@@ -20,8 +19,9 @@ while stop:
         stop = False
     elif numTrace in listeTrace:
         print("Vous avez choisi la trace ",numTrace)
+        trace = gpx2.GpxToArray(file[numTrace-1])
         if nav2.canStart(trace,9,4) == True:
-            nav2.navigation(trace,pos,orientation)
+            nav2.navigation(trace)
             continuer = input('Voulez-vous continuer: ')
             if continuer == 0:
                 print("Arret du programme")

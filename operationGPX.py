@@ -1,5 +1,7 @@
 import xml.etree.ElementTree as ET
-#from interactionDB import DB
+from interactionDB import DB
+
+db = DB()
 
 class GPX:
     
@@ -17,18 +19,17 @@ class GPX:
             trace.append(i.attrib['lon'])
         return trace
 
-    """
     def GPXToDB(self,file,nomTrace):
-        DB.insertTrace(nomTrace)
+        db.insertTrace(nomTrace)
         tree = ET.parse(file)
         root = tree.getroot()
         for i in root[1][1]:
-           DB.insertTrace(DB.selectTraceWithName(nomTrace),i.attrib['lat'],i.attrib['lon'])
+           db.insertTrace(db.selectTraceWithName(nomTrace),i.attrib['lat'],i.attrib['lon'])
 
     def dataGpxToArray(self,idTrace):
         trace=[]
-        requete = DB.selectDataWithIdTrace(idTrace)
+        requete = db.selectDataWithIdTrace(idTrace)
         for i in requete:
             trace.append(requete[i][0])
             trace.append(requete[i][1])
-        return trace"""
+        return trace
