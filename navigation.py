@@ -1,6 +1,9 @@
 
 class nav:
 
+    def init():
+        print("OK")
+
     def canStart(self,trace,lat,lon):
         res = False
         if ((trace[0]>=lat-1) and (trace[0]<=lat+1)) and ((trace[1]>=lon-1) and (trace[1]<=lon+1)):
@@ -16,7 +19,7 @@ class nav:
     def nextPoint(self,trace,lat,lon):
         res = []
         cpt = 2
-        while (cpt<len(trace)-2) and (len(res)<4):
+        while (cpt<len(trace)-1) and (len(res)<4):
             if (float(lat)<=float(trace[cpt]) and float(lat)>=float(trace[cpt-2])) and (float(lon)<=float(trace[cpt+1]) and float(lon)>=float(trace[cpt-1])):
                 res.append(trace[cpt])
                 res.append(trace[cpt+1])
@@ -68,6 +71,15 @@ class nav:
                     return("a gauche")
                 else:
                     return("a droite")
+    
+    def navigation(self,trace,pos,orientation):
+        cpt=0
+        while (self.isFinish(trace,pos[cpt],pos[cpt+1]) == False):
+                pointSuivant = self.nextPoint(trace,pos[cpt],pos[cpt+1])
+                nav2i = self.direction(pointSuivant,pos[cpt],pos[cpt+1],orientation[cpt/2])
+                print(nav2i)
+                cpt += 2
+        print("Vous etes arrive")
 
 
 

@@ -5,7 +5,7 @@ class DB:
    database = mysql.connector.connect(host="localhost", user="root", password="root", database="Backdel") # Database connection informations
    cursor = database.cursor() # Connection to the database
 
-   def __init__(self):
+   def init(self):
       """Initialisation of the database"""
 
       self.createTables(self)
