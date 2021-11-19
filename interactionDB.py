@@ -32,13 +32,13 @@ class DB:
          );
       """)
 
-   def insertTrace(self,nomTrace):
+   def insertTrace(self,nameTrace):
       """Insert a trace in the database"""
 
       self.cursor.execute("""
          INSERT INTO Trace(nomTrace) 
          VALUES (?);"""
-         , (nomTrace)
+         , (nameTrace)
       )
 
       self.cursor.commit()
@@ -54,17 +54,19 @@ class DB:
 
       self.cursor.commit()
 
-   def selectTraceWithName(self,nomTrace):
+   def selectTraceWithName(self,nameTrace):
+      """Select a trace by its name"""
       
       self.cursor.execute("""
          SELECT idTrace 
          FROM Trace
          WHERE nomTrace='%s';"""
-         % (nomTrace)
+         % (nameTrace)
       )
       return self.cursor.fetchone()
 
    def selectDataWithIdTrace(self,idTrace):
+      """Select trace data with its id"""
        
       self.cursor.execute("""
          SELECT Data.latitude,Data.longitude 
@@ -78,6 +80,8 @@ class DB:
       return self.cursor.fetchall()
 
    def selectAllIdTrace(self):
+      """Select all id of trace"""
+
       self.cursor.execute("""
          SELECT idTrace
          FROM Trace 
@@ -86,6 +90,8 @@ class DB:
       return self.cursor.fetch()
 
    def close(self):
+      """Close interactions with the database"""
+
       self.database.close()
 
 

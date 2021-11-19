@@ -3,15 +3,21 @@ import time
 class nav:
 
     def init():
+        """Initialisation of the nav"""
+
         print("OK")
 
     def canStart(self,trace,lat,lon):
+        """Return if the navigation can start"""
+
         res = False
         if ((trace[0]>=lat-1) and (trace[0]<=lat+1)) and ((trace[1]>=lon-1) and (trace[1]<=lon+1)):
             res = True
         return res
 
     def isFinish(self,trace,lat,lon):
+        
+
         res = False
         if ((trace[len(trace)-2]>=lat-1) and (trace[len(trace)-2]<=lat+1)) and ((trace[len(trace)-1]>=lon-1) and (trace[len(trace)-1]<=lon+1)):
             res = True
