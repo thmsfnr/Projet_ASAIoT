@@ -2,7 +2,7 @@ import mysql.connector
 
 class DB:
 
-   database = mysql.connector.connect(host="localhost", user="root", password="root", database="Backdel") # Database connection informations
+   database = mysql.connector.connect(host="localhost", user="root", password="root", database="mabasededonnees") # Database connection informations
    cursor = database.cursor() # Connection to the database
 
    def init(self):
@@ -35,49 +35,51 @@ class DB:
    def insertTrace(self,nameTrace):
       """Insert a trace in the database"""
 
-      self.cursor.execute("""
-         INSERT INTO Trace(nomTrace) 
-         VALUES (?);"""
-         , (nameTrace)
-      )
+      sql = """INSERT INTO Trace(nomTrace) 
+         VALUES (%s);"""
+      adr=(nameTrace,)
 
-      self.cursor.commit()
+      self.cursor.execute(sql,adr)
+
+      self.database.commit()
 
    def insertData(self,idTrace,latitude,longitude):
       """Insert data of trace in the database"""
 
-      self.cursor.execute("""
-         INSERT INTO Data(idTrace,latitude,longitude) 
-         VALUES (?);"""
-         , (idTrace,latitude,longitude)
-      )
+      sql = """INSERT INTO Data(idTrace,latitude,longitude) 
+         VALUES (%s,%s,%s);"""
+      adr=(idTrace,latitude,longitude)
 
-      self.cursor.commit()
+      self.cursor.execute(sql,adr)
+
+      self.database.commit()
 
    def selectTraceWithName(self,nameTrace):
       """Select a trace by its name"""
-      
-      self.cursor.execute("""
-         SELECT idTrace 
+
+      sql = """SELECT idTrace 
          FROM Trace
-         WHERE nomTrace='%s';"""
-         % (nameTrace)
-      )
-      return self.cursor.fetchone()
+         WHERE nomTrace=%s;"""
+      adr = (nameTrace,)
+
+      self.cursor.execute(sql, adr)
+
+      return self.cursor.fetchone()[0] # Int
 
    def selectDataWithIdTrace(self,idTrace):
       """Select trace data with its id"""
        
-      self.cursor.execute("""
-         SELECT Data.latitude,Data.longitude 
+      sql = """SELECT Data.latitude,Data.longitude 
          FROM Data
          INNER JOIN Trace 
          ON Trace.idTrace = Data.idTrace
-         WHERE Trace.idTrace='%s'
+         WHERE Trace.idTrace=%s
          ORDER BY Data.idData;"""
-         % (idTrace)
-      )
-      return self.cursor.fetchall()
+      adr = (idTrace,)
+
+      self.cursor.execute(sql, adr)
+
+      return self.cursor.fetchall() # List of tuple
 
    def selectAllIdTrace(self):
       """Select all id of trace"""
@@ -87,12 +89,9 @@ class DB:
          FROM Trace 
          ;"""
       )
-      return self.cursor.fetch()
+      return self.cursor.fetchall() # List of tuple
 
    def close(self):
       """Close interactions with the database"""
 
       self.database.close()
-
-
-  
