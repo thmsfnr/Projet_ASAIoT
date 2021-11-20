@@ -6,20 +6,24 @@ db = DB()
 class GPX:
     
     def init():
+        """Initialisation of gpx"""
+
         print("OK")
 
     def GpxToArray(self,file):
+        """Read a gpx file and put its content in an array"""
+
         trace=[]
         tree = ET.parse(file)
         root = tree.getroot()
-        #return("L'element racine : ", root.tag)
-        #return("Le premier enfant de la racine : ", root[1][1].tag)
         for i in root[1][1]:
             trace.append(i.attrib['lat'])
             trace.append(i.attrib['lon'])
-        return trace
+        return trace # Array
 
     def GPXToDB(self,file,nomTrace):
+        """Read a gpx file and put its content in a database"""
+
         db.insertTrace(nomTrace)
         tree = ET.parse(file)
         root = tree.getroot()
@@ -27,9 +31,10 @@ class GPX:
            db.insertTrace(db.selectTraceWithName(nomTrace),i.attrib['lat'],i.attrib['lon'])
 
     def dataGpxToArray(self,idTrace):
+        """Read a trace in a database and put its content in an array"""
         trace=[]
         requete = db.selectDataWithIdTrace(idTrace)
         for i in requete:
             trace.append(requete[i][0])
             trace.append(requete[i][1])
-        return trace
+        return trace # Array

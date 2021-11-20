@@ -3,6 +3,7 @@ class User:
     
     def init():
         """Initialisation of the user"""
+
         print("OK")
 
     def chooseTrace(self):
@@ -12,5 +13,5 @@ class User:
         print("2 : Entrepot -> 2 Rue Polytech")
         print("3 : Entrepot -> 2 Rue Apple")
         numTrace = input('Entrez le numero de la trace : ')
-        return numTrace
+        return numTrace # String
 
