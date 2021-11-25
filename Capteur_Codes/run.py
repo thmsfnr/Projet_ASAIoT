@@ -2,6 +2,7 @@
 from driverI2C import *
 from groveCompass import *
 from grove_button import *
+from groveVibration import *
 
 '''
 import time
@@ -21,11 +22,11 @@ def orientation():
     return getOrientation()
 
 
-#       TEST    
 
+#       TEST    
 #orientation()
 afficheSurEcran("ayoub")
 changerCouleur("blanc")
+#print(Choix_trace())
 
-
-print(Choix_trace())
+print(Vibrer(2))
