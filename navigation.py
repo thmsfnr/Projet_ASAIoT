@@ -37,7 +37,7 @@ class nav:
 
     def direction(self,nextPoint,lat,lon,orientation):
         """Return the direction to follow to continue the trace"""
-
+        """Nord = 0, East = 90, West = 270, South = 180"""
         if (orientation>45) and (orientation<135):
             if abs(float(lat)-float(nextPoint[0])) > abs(float(lon)-float(nextPoint[1])):
                 if (float(lat)-float(nextPoint[0])) < 0:
@@ -63,9 +63,9 @@ class nav:
         elif (orientation>=135) and (orientation<225):
             if abs(float(lat)-float(nextPoint[0])) > abs(float(lon)-float(nextPoint[1])):
                 if (float(lat)-float(nextPoint[0])) < 0:
-                    return("a gauche")
-                else:
                     return("a droite")
+                else:
+                    return("a gauche")
             else:
                 if (float(lon)-float(nextPoint[1])) < 0:
                     return("demi-tour")
