@@ -1,11 +1,14 @@
 
 from driverI2C import *
 from groveCompass import *
+from grove_button import *
 
-'''import time
-import sys'''
+'''
+import time
+import sys
+'''
 
-#       La fonction affiche sur l'écran lcd le texte qu'on souhaite     
+#       La fonction affiche sur l'ecran lcd le texte qu'on souhaite     
 def afficheSurEcran(texte):
     setText(texte)
 
@@ -18,9 +21,11 @@ def orientation():
     return getOrientation()
 
 
-
 #       TEST    
-orientation()
+
+#orientation()
 afficheSurEcran("ayoub")
 changerCouleur("blanc")
 
+
+print(Choix_trace())
