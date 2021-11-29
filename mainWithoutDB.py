@@ -1,6 +1,6 @@
-from operationGPX import GPX
-from navigation import nav
-from interactionUser import User
+from model.operationGPX import GPX
+from controller.navigation import nav
+from view.interactionUser import User
 import time
 
 """Initialisation of main parameters"""

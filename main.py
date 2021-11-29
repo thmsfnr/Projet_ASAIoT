@@ -1,7 +1,7 @@
-from operationGPX import GPX
-from navigation import nav
-from interactionUser import User
-from interactionDB import DB
+from model.operationGPX import GPX
+from controller.navigation import nav
+from view.interactionUser import User
+from model.interactionDB import DB
 import time
 
 """Initialisation of the objects"""
