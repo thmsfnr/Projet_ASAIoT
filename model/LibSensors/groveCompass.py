@@ -1,4 +1,4 @@
-import lsm303d
+from grove_compass.lsm303d import lsm303d
 
 '''
 try:
@@ -23,7 +23,7 @@ try:
 except IOError:
 	print("Unable to read from accelerometer, check the sensor and try again")
 '''
-'''
+
 def getOrientation():
 	try:
 		acc_mag=lsm303d.lsm303d()
@@ -47,6 +47,3 @@ def getOrientation():
 	except IOError:
 		print("Unable to read from accelerometer, check the sensor and try again")
 	return heading
-'''
-
-print("ça marche")
