@@ -1,8 +1,8 @@
 
-from driverI2C import *
-from groveCompass import *
-from grove_button import *
-from groveVibration import *
+from ..model.LibSensors.driverI2C import *
+from ..model.LibSensors.groveCompass import *
+from ..model.LibSensors.grove_button import *
+from ..model.LibSensors.groveVibration import *
 
 '''
 import time
