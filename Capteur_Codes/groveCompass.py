@@ -1,5 +1,5 @@
-
 import lsm303d
+
 '''
 try:
 	acc_mag=lsm303d.lsm303d()
@@ -22,6 +22,7 @@ try:
 
 except IOError:
 	print("Unable to read from accelerometer, check the sensor and try again")
+'''
 '''
 def getOrientation():
 	try:
@@ -46,3 +47,6 @@ def getOrientation():
 	except IOError:
 		print("Unable to read from accelerometer, check the sensor and try again")
 	return heading
+'''
+
+print("ça marche")
