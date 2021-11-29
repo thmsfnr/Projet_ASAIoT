@@ -11,6 +11,7 @@ use = User()
 db = DB()
 
 """Initialisation of main parameters"""
+"""test"""
 stop = True
 listeTrace=db.selectAllIdTrace()
 
