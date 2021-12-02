@@ -1,14 +1,10 @@
 
-import sys  
-from pathlib import Path  
-file = Path("useSensor.py").resolve()  
-package_root_directory = file.parents[1]  
-sys.path.append(str(package_root_directory))  
+from ..model.LibSensors.driverI2C import *
+from ..model.LibSensors.groveCompass import *
+from ..model.LibSensors.grove_button import *
+from ..model.LibSensors.groveVibration import *
 
-from model.LibSensors.driverI2C import *
-from model.LibSensors.groveCompass import *
-from model.LibSensors.grove_button import *
-from model.LibSensors.groveVibration import *
+
 
 '''
 import time
@@ -32,15 +28,11 @@ def vibrer(port):
     Vibrer(port)
 
 
-"""
+
 #       TEST    
 #orientation()
 afficheSurEcran("ayoub")
 changerCouleur("blanc")
 #print(Choix_trace())
 
-<<<<<<< HEAD
 print(vibrer(2))
-=======
-print(Vibrer(2))"""
->>>>>>> 5c67ef3f9990b6d19890665785ba63751fe45f4a
