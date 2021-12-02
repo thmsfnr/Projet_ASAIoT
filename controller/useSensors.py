@@ -1,8 +1,6 @@
-
-
 import sys  
 from pathlib import Path  
-file = Path("interactionUser.py").resolve()  
+file = Path("useSensors.py").resolve()  
 package_root_directory = file.parents[1]  
 sys.path.append(str(package_root_directory))  
 
@@ -34,6 +32,10 @@ def orientation():
 def vibrer(port):
     Vibrer(port)
 
+#      Faire Fonctionne le Bouton afin de choisir une trace
+def ChoixTrace():
+    return Choix_trace()
+
 
 """
 #       TEST    
@@ -42,4 +44,7 @@ afficheSurEcran("ayoub")
 changerCouleur("blanc")
 #print(Choix_trace())
 
-print(vibrer(2))"""
+print(vibrer(2))
+print(ChoixTrace())
+
+"""
