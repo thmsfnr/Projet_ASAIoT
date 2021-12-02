@@ -1,4 +1,3 @@
-from grove_compass.lsm303d import lsm303d
 
 '''
 try:
