@@ -1,5 +1,12 @@
+
+import sys  
+from pathlib import Path  
+file = Path("navigation.py").resolve()  
+package_root_directory = file.parents[1]  
+sys.path.append(str(package_root_directory))  
+
 import time
-from useSensors import *
+from controller.useSensors import *
 
 class nav:
 

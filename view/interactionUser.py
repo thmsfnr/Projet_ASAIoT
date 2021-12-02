@@ -27,6 +27,6 @@ class User:
         """Ask to the user to choose a trace"""
 
         afficheSurEcran("1 : Entrepot -> 2 Rue Papin")
-        numTrace = Choix_trace()
+        numTrace = ChoixTrace()
         return numTrace 
 

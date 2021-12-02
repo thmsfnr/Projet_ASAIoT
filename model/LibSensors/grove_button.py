@@ -26,6 +26,7 @@ def Choix_trace():
     while quitter == False:
 
         click = grovepi.digitalRead(button)
+        print(click)
         if click == 1 :
             cpt += 1
         if click == 0 :
@@ -37,4 +38,5 @@ def Choix_trace():
             else :
                 cpt = 0
         time.sleep(.25)
+    print(res)
     return res
