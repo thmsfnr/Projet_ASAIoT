@@ -19,7 +19,6 @@ def Button():
             print ("Error")
 
 
-
 def Choix_trace():
     cpt = 0
     quitter = False
