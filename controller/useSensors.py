@@ -21,6 +21,10 @@ def changerCouleur(couleur):
 def orientation():
     return getOrientation()
 
+#       faire vibrer le vibreur qui correspond aux port 
+def vibrer(port):
+    Vibrer(port)
+
 
 
 #       TEST    
@@ -29,4 +33,4 @@ afficheSurEcran("ayoub")
 changerCouleur("blanc")
 #print(Choix_trace())
 
-print(Vibrer(2))
+print(vibrer(2))
