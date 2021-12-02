@@ -1,15 +1,23 @@
+
 import sys  
 from pathlib import Path  
 file = Path("useSensors.py").resolve()  
 package_root_directory = file.parents[1]  
 sys.path.append(str(package_root_directory))  
 
+'''
+import os 
+
+
+path = "/home/pi/Projet_ASAIoT"
+os.chdir(path)
+'''
 from model.LibSensors.driverI2C import *
 from model.LibSensors.groveCompass import *
 from model.LibSensors.grove_button import *
 from model.LibSensors.groveVibration import *
 
-
+print(file)
 
 '''
 import time
@@ -45,6 +53,8 @@ changerCouleur("blanc")
 #print(Choix_trace())
 
 print(vibrer(2))
+
 print(ChoixTrace())
 
 """
+print(vibrer(2))
