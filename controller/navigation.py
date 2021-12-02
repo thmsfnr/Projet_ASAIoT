@@ -97,7 +97,7 @@ class nav:
                     vibrer(4) # demi-tour
             else:
                 if (float(lon)-float(nextPoint[1])) < 0:
-                    vibrer(3) # à droite
+                    vibrer(6) # à droite
                 else:
                     vibrer(5) # à gauche
         elif ((orientation>=0) and (orientation<=45)) or ((orientation>315) and (orientation<360)):
@@ -105,7 +105,7 @@ class nav:
                 if (float(lat)-float(nextPoint[0])) < 0:
                     vibrer(5)
                 else:
-                    vibrer(3)
+                    vibrer(6)
             else:
                 if (float(lon)-float(nextPoint[1])) < 0:
                     vibrer(2)
@@ -114,7 +114,7 @@ class nav:
         elif (orientation>=135) and (orientation<225):
             if abs(float(lat)-float(nextPoint[0])) > abs(float(lon)-float(nextPoint[1])):
                 if (float(lat)-float(nextPoint[0])) < 0:
-                    vibrer(3)
+                    vibrer(6)
                 else:
                     vibrer(5)
             else:
@@ -132,7 +132,7 @@ class nav:
                 if (float(lon)-float(nextPoint[1])) < 0:
                     vibrer(5)
                 else:
-                    vibrer(3)
+                    vibrer(6)
     
     def navigation(self,trace):
         """Full navigation management"""
