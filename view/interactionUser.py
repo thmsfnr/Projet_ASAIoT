@@ -1,7 +1,7 @@
 
 import sys  
 from pathlib import Path  
-file = Path("useSensors.py").resolve()  
+file = Path("interactionUser.py").resolve()  
 package_root_directory = file.parents[1]  
 sys.path.append(str(package_root_directory))  
 
