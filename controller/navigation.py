@@ -99,11 +99,11 @@ class nav:
                 if (float(lon)-float(nextPoint[1])) < 0:
                     vibrer(3) # à droite
                 else:
-                    vibrer(4) # à gauche
+                    vibrer(5) # à gauche
         elif ((orientation>=0) and (orientation<=45)) or ((orientation>315) and (orientation<360)):
             if abs(float(lat)-float(nextPoint[0])) > abs(float(lon)-float(nextPoint[1])):
                 if (float(lat)-float(nextPoint[0])) < 0:
-                    vibrer(4)
+                    vibrer(5)
                 else:
                     vibrer(3)
             else:
@@ -116,7 +116,7 @@ class nav:
                 if (float(lat)-float(nextPoint[0])) < 0:
                     vibrer(3)
                 else:
-                    vibrer(4)
+                    vibrer(5)
             else:
                 if (float(lon)-float(nextPoint[1])) < 0:
                     vibrer(4)
@@ -130,7 +130,7 @@ class nav:
                     vibrer(2)
             else:
                 if (float(lon)-float(nextPoint[1])) < 0:
-                    vibrer(4)
+                    vibrer(5)
                 else:
                     vibrer(3)
     
@@ -139,7 +139,7 @@ class nav:
 
         lat=0
         lon=0
-        orientation=0
+        orientation=getOrientation()
         while (self.isFinish(trace,lat,lon) == False): # The user has not completed the trace
             pointSuivant = self.nextPoint(trace,lat,lon)
             nav2i = self.direction(pointSuivant,lat,lon,orientation)
