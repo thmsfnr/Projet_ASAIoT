@@ -1,3 +1,5 @@
+import lsm303d
+
 
 '''
 try:

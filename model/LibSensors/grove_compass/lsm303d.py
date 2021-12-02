@@ -12,6 +12,8 @@
 # Released under the MIT license (http://choosealicense.com/licenses/mit/).
 # For more information see https://github.com/DexterInd/GrovePi/blob/master/LICENSE
 
+
+
 import time,sys
 import RPi.GPIO as GPIO
 import smbus
@@ -209,3 +211,5 @@ if __name__ == "__main__":
 
 		# Do not use, math error
 		# print acc_mag.getTiltHeading()
+
+

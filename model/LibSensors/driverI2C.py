@@ -49,7 +49,7 @@ def setText(texte):
 		time.sleep(0.2)
 	# ...
 		if ((i > 14) or (c == "\n")):   # si on rencontre \n ou si on depasse 16 caracteres
-	 		textCmd(0xc0) # pour passer a la ligne
+			textCmd(0xc0) # pour passer a la ligne
 			i = 0
 		i=i+1
 		cpt=cpt+1
