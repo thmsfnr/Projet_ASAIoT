@@ -1,4 +1,4 @@
-from grove_compass.lsm303d import lsm303d
+from grove_compass.lsm303d import *
 
 '''
 try:
