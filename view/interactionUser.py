@@ -1,4 +1,6 @@
 
+from ..controller.useSensors import * 
+
 class User:
     
     def init():
@@ -6,7 +8,7 @@ class User:
 
         print("OK")
 
-    def chooseTrace(self):
+    def chooseTraceTerminal(self):
         """Ask to the user to choose a trace"""
 
         print("1 : Entrepot -> 2 Rue Papin")
@@ -14,4 +16,11 @@ class User:
         print("3 : Entrepot -> 2 Rue Apple")
         numTrace = input('Entrez le numero de la trace : ')
         return numTrace # String
+
+    def chooseTrace(self):
+        """Ask to the user to choose a trace"""
+
+        afficheSurEcran("1 : Entrepot -> 2 Rue Papin")
+        numTrace = Choix_trace()
+        return numTrace 
 

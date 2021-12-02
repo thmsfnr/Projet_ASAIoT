@@ -1,8 +1,14 @@
 
-from ..model.LibSensors.driverI2C import *
-from ..model.LibSensors.groveCompass import *
-from ..model.LibSensors.grove_button import *
-from ..model.LibSensors.groveVibration import *
+import sys  
+from pathlib import Path  
+file = Path("useSensor.py").resolve()  
+package_root_directory = file.parents[1]  
+sys.path.append(str(package_root_directory))  
+
+from model.LibSensors.driverI2C import *
+from model.LibSensors.groveCompass import *
+from model.LibSensors.grove_button import *
+from model.LibSensors.groveVibration import *
 
 '''
 import time
@@ -22,11 +28,11 @@ def orientation():
     return getOrientation()
 
 
-
+"""
 #       TEST    
 #orientation()
 afficheSurEcran("ayoub")
 changerCouleur("blanc")
 #print(Choix_trace())
 
-print(Vibrer(2))
+print(Vibrer(2))"""

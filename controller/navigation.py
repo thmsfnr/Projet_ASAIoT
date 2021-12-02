@@ -1,4 +1,5 @@
 import time
+from useSensors import *
 
 class nav:
 
@@ -35,7 +36,7 @@ class nav:
             cpt += 2
         return res # Array
 
-    def direction(self,nextPoint,lat,lon,orientation):
+    def directionTerminal(self,nextPoint,lat,lon,orientation):
         """Return the direction to follow to continue the trace"""
         """Nord = 0, East = 90, West = 270, South = 180"""
         
@@ -84,6 +85,55 @@ class nav:
                 else:
                     return("a droite")
     
+    def direction(self,nextPoint,lat,lon,orientation):
+        """Return the direction to follow to continue the trace"""
+        """Nord = 0, East = 90, West = 270, South = 180"""
+        
+        if (orientation>45) and (orientation<135):
+            if abs(float(lat)-float(nextPoint[0])) > abs(float(lon)-float(nextPoint[1])):
+                if (float(lat)-float(nextPoint[0])) < 0:
+                    vibrer(2) # tout droit
+                else:
+                    vibrer(4) # demi-tour
+            else:
+                if (float(lon)-float(nextPoint[1])) < 0:
+                    vibrer(3) # à droite
+                else:
+                    vibrer(4) # à gauche
+        elif ((orientation>=0) and (orientation<=45)) or ((orientation>315) and (orientation<360)):
+            if abs(float(lat)-float(nextPoint[0])) > abs(float(lon)-float(nextPoint[1])):
+                if (float(lat)-float(nextPoint[0])) < 0:
+                    vibrer(4)
+                else:
+                    vibrer(3)
+            else:
+                if (float(lon)-float(nextPoint[1])) < 0:
+                    vibrer(2)
+                else:
+                    vibrer(4)
+        elif (orientation>=135) and (orientation<225):
+            if abs(float(lat)-float(nextPoint[0])) > abs(float(lon)-float(nextPoint[1])):
+                if (float(lat)-float(nextPoint[0])) < 0:
+                    vibrer(3)
+                else:
+                    vibrer(4)
+            else:
+                if (float(lon)-float(nextPoint[1])) < 0:
+                    vibrer(4)
+                else:
+                    vibrer(2)
+        elif (orientation>=225) and (orientation<=315):
+            if abs(float(lat)-float(nextPoint[0])) > abs(float(lon)-float(nextPoint[1])):
+                if (float(lat)-float(nextPoint[0])) < 0:
+                    vibrer(4)
+                else:
+                    vibrer(2)
+            else:
+                if (float(lon)-float(nextPoint[1])) < 0:
+                    vibrer(4)
+                else:
+                    vibrer(3)
+    
     def navigation(self,trace):
         """Full navigation management"""
 
@@ -97,7 +147,7 @@ class nav:
             time.sleep(2)
             lat=0
             lon=0
-            orientation=0
+            orientation=getOrientation()
         print("Vous etes arrive")
 
 
