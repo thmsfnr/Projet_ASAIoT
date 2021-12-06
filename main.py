@@ -10,6 +10,8 @@ gpx2 = GPX()
 use = User()
 db = DB()
 
+gpx2.GPXToDB("/Examples_GPX/2021-11-08_556784540_Test.gpx","1 : Entrepot -> 2 Rue Papin")
+
 """Initialisation of main parameters"""
 """test"""
 stop = True
