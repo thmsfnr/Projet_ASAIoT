@@ -1,4 +1,5 @@
 
+import math
 import sys  
 from pathlib import Path  
 file = Path("operationGPX.py").resolve()  
@@ -39,9 +40,25 @@ class GPX:
 
     def dataGpxToArray(self,idTrace):
         """Read a trace in a database and put its content in an array"""
+        
         trace=[]
         requete = db.selectDataWithIdTrace(idTrace)
         for i in requete:
             trace.append(requete[i][0])
             trace.append(requete[i][1])
         return trace # Array
+
+    def convertDegreeToMeter(self,tab):
+        """Convert a tab of latitude and longitude in degree into meter"""
+
+        for i in range(0,len(tab)-1,2):
+            tab[i] = tab[i] * 111,32
+            tab[i+1] = 40075 * (math.cos(tab[i])/360)
+        return tab
+
+    def convertMeterToTime(self,speed,tab):
+        """Convert a tab of latitude and longitude in meter into time"""
+
+        for i in range(0,len(tab)):
+            t = d/v
+            tab[i]=

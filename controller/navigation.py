@@ -157,6 +157,10 @@ class nav:
             orientation=getOrientation()
         print("Vous etes arrive")
 
+    def nextPointTime(self,trace,time):
+        """Return the next point of the trace relative to a time"""
+        res = []
+        return res
 
 
 
