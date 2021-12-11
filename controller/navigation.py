@@ -249,7 +249,7 @@ class nav:
             pos = self.placeGpx(self.indexMeter(dist,trace))
             nextPoint = self.nextPoint(trace,pos[0],pos[1])
             direction = self.directionWithoutGps(nextPoint,pos[0],pos[1],orientation,dist)
-            dist += 
+            if 
             
 
 
