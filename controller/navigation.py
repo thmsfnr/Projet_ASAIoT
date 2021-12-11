@@ -43,6 +43,39 @@ class nav:
             cpt += 2
         return res # Array
 
+    def speedToDistance(self,speedAvg,duration):
+        """Calculate a distance with an average speed an a duration"""
+        
+        return speedAvg/duration
+
+    def calcSpeedAvg(self,currentSpeed,prevSpeedAvg):
+        """Calculate the current average speed"""
+
+        return (currentSpeed+prevSpeedAvg)/2
+
+    def indexMeter(self,distance,trace):
+        """Find the current position"""
+        
+        res = 0
+        cpt = 1
+        while (cpt<len(trace)-1) and (res==0):
+            if (distance<=trace[cpt]) and (distance<=trace[cpt+1]): 
+                res = cpt
+            cpt += 1
+        return res
+
+    def placeGpx(self,index,trace):
+        """Find the latitude and longitude associated with an index"""
+
+        res = []
+        cpt = 2
+        while (cpt<len(trace)-1) and (len(res)<2):
+            if (cpt/2) == index: 
+                res.append(trace[cpt])
+                res.append(trace[cpt+1])
+            cpt += 2
+        return res 
+
     def directionTerminal(self,nextPoint,lat,lon,orientation):
         """Return the direction to follow to continue the trace"""
         """Nord = 0, East = 90, West = 270, South = 180"""

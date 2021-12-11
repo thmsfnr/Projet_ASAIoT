@@ -48,17 +48,15 @@ class GPX:
             trace.append(requete[i][1])
         return trace # Array
 
-    def convertDegreeToMeter(self,tab):
+    def convertDegreeToMeter(self,trace):
         """Convert a tab of latitude and longitude in degree into meter"""
 
-        for i in range(0,len(tab)-1,2):
-            tab[i] = tab[i] * 111,32
-            tab[i+1] = 40075 * (math.cos(tab[i])/360)
-        return tab
+        res = [0]
+        for i in range(0,len(trace)-1,2):
+            distLat = abs((trace[i]* 111,32)-(trace[i+2]* 111,32))
+            distLon = abs((40075 * (math.cos(trace[i])/360))-(40075 * (math.cos(trace[i+2])/360)))
+            dist = math.sqrt(distLat**2)+math.sqrt(distLon**2)
+            res.append(dist)
+        return res
 
-    def convertMeterToTime(self,speed,tab):
-        """Convert a tab of latitude and longitude in meter into time"""
-
-        for i in range(0,len(tab)):
-            t = d/v
-            tab[i]=
+  
