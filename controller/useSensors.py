@@ -29,5 +29,3 @@ def vibrer(port):
 #      Faire Fonctionne le Bouton afin de choisir une trace
 def ChoixTrace():
     return Choix_trace()
-
-

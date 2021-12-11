@@ -6,6 +6,9 @@ package_root_directory = file.parents[1]
 sys.path.append(str(package_root_directory))  
 
 from controller.useSensors import * 
+from model.interactionDB import DB
+
+db = DB()
 
 class User:
     
@@ -28,5 +31,16 @@ class User:
 
         afficheSurEcran("1 : Entrepot -> 2 Rue Papin")
         numTrace = ChoixTrace()
-        return numTrace 
+        return numTrace
+
+    def chooseTraceDB(self):
+        """Ask to the user to choose a trace"""
+
+        cpt = 1
+        for i in db.selectAllNameTrace:
+            afficheSurEcran(str(cpt) + str(i))
+            cpt+=1
+        numTrace = ChoixTrace()
+        return numTrace
+    
 

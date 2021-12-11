@@ -91,6 +91,16 @@ class DB:
       )
       return self.cursor.fetchall() # List of tuple
 
+   def selectAllNameTrace(self):
+      """Select all name trace"""
+
+      self.cursor.execute("""
+         SELECT nameTrace
+         FROM Trace 
+         ;"""
+      )
+      return self.cursor.fetchall() # List of tuple
+
    def close(self):
       """Close interactions with the database"""
 
