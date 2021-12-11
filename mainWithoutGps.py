@@ -1,37 +1,32 @@
-from model.operationGPX import GPX
 from controller.navigation import nav
 from view.interactionUser import User
-from model.interactionDB import DB
+from controller.useSensors import *
 import time
 
 """Initialisation of the objects"""
 nav2 = nav()
-gpx2 = GPX()
 use = User()
-db = DB()
-
-gpx2.GPXToDB("/home/pi/Projet_ASAIoT/Examples_GPX/2021-11-08_556784540_Test.gpx","1 : Entrepot -> 2 Rue Papin")
 
 """Initialisation of main parameters"""
-"""test"""
 stop = True
-listeTrace=db.selectAllIdTrace()
+allTrace=[[10,0,20,0,30,0,40,0]]
+listeTrace = [1]
 
 """Course of the program"""
 while stop:
-
     numTrace = use.chooseTrace()
     if numTrace == 0: # The user wants to quit the program
-        print("Arret du programme")
+        afficheSurEcran("Arret du programme")
+        time.sleep(2)
         stop = False
     elif numTrace in listeTrace: # The user has entered a valid num of trace
-        print("Vous avez choisi la trace ",numTrace)
-        trace = gpx2.dataGpxToArray(numTrace) # Obtaining the trace in table form
-        nav2.navigation(trace) # Calculation and display of the direction to follow
-        continuer = input('Voulez-vous continuer: ')
-        if continuer == 0: # The user wants to quit the program
-            print("Arret du programme")
-            stop = False
+        afficheSurEcran("Vous avez choisi la trace "+str(numTrace))
+        time.sleep(2)
+        trace = allTrace[numTrace-1] # Obtaining the trace in table form
+        nav2.navigationWithoutGps(trace) # A faire
+        afficheSurEcran("La trace est terminee")
+        time.sleep(2)
+        stop = False
     else: # The user has entered an invalid num of trace
-        print("Rentrez un numero valide")
-    
+        afficheSurEcran("Rentrez un numero valide")
+        time.sleep(2)

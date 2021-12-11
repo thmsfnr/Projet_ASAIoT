@@ -125,6 +125,7 @@ class nav:
                 else:
                     return("a droite")
     
+    
     def direction(self,nextPoint,lat,lon,orientation):
         """Return the direction to follow to continue the trace"""
         """Nord = 0, East = 90, West = 270, South = 180"""
@@ -244,12 +245,13 @@ class nav:
         """Full navigation management without gps"""
 
         dist = 0
+        """
         while (dist <= lengthTrace(trace)):
             orientation=getOrientation()
             pos = self.placeGpx(self.indexMeter(dist,trace))
             nextPoint = self.nextPoint(trace,pos[0],pos[1])
             direction = self.directionWithoutGps(nextPoint,pos[0],pos[1],orientation,dist)
-            if 
+            if """
             
 
 
