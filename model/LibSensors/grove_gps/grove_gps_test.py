@@ -89,7 +89,6 @@ class GPS:
 	def read(self):	
 		while True:
 			print(ser.readline())
-			
 			time.sleep(0.1)     #without the cmd program will crash
 		try:
 			ind=GPS.inp.index('$GPGGA',5,len(GPS.inp))	#Sometimes multiple GPS data packets come into the stream. Take the data only after the last '$GPGGA' is seen

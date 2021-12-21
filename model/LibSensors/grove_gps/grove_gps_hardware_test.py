@@ -26,11 +26,12 @@ import math
 import RPi.GPIO as GPIO
 import struct
 import sys
-import ir_receiver_check
+#import ir_receiver_check
 
+"""
 if ir_receiver_check.check_ir():
 	print("Disable IR receiver before continuing")
-	exit()
+	exit()"""
 
 ser = serial.Serial('/dev/ttyAMA0',  9600, timeout = 0)	#Open the serial port at 9600 baud
 ser.flush()
@@ -41,12 +42,12 @@ def readlineCR():
         time.sleep(0.01)	# This is the critical part.  A small pause 
         					# works really well here.
         ch = ser.read()        
-        rv += ch
+        rv += str(ch)
         if ch=='\r' or ch=='':
             return rv
 
 while True:
-	#readlineCR()
+	readlineCR()
 	x=readlineCR()
 	print(x)
 	

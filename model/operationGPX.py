@@ -25,8 +25,8 @@ class GPX:
         tree = ET.parse(file)
         root = tree.getroot()
         for i in root[1][1]:
-            trace.append(i.attrib['lat'])
-            trace.append(i.attrib['lon'])
+            trace.append(float(i.attrib['lat']))
+            trace.append(float(i.attrib['lon']))
         return trace # Array
 
     def GPXToDB(self,file,nomTrace):
@@ -36,7 +36,7 @@ class GPX:
         tree = ET.parse(file)
         root = tree.getroot()
         for i in root[1][1]:
-           db.insertTrace(db.selectTraceWithName(nomTrace),i.attrib['lat'],i.attrib['lon'])
+           db.insertTrace(db.selectTraceWithName(nomTrace))
 
     def dataGpxToArray(self,idTrace):
         """Read a trace in a database and put its content in an array"""
