@@ -61,4 +61,5 @@ def get_position():
 		lon = -lon
 
 	return [lat,lon]
+
 				
