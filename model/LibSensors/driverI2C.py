@@ -22,7 +22,7 @@ def setRGB(rouge,vert,bleu):
 	bus.write_byte_data(DISPLAY_RGB_ADDR,0x03,vert)
 	bus.write_byte_data(DISPLAY_RGB_ADDR,0x04,rouge)
 	bus.write_byte_data(DISPLAY_RGB_ADDR,0x08,0xAA)
-	print("Couleur écran changée")
+	#print("Couleur écran changée")
 
 # Envoie  a l'ecran une commande concerant l'affichage des caracteres
 # (cette fonction vous est donnes gratuitement si vous
@@ -60,7 +60,7 @@ def setText(texte):
 			cpt=0
 			i=0
 	# ...
-	print ("texte ecrit")
+	#print ("texte ecrit")
 
 def setColor(texte):
 	if (texte=="blanc"):

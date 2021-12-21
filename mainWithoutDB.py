@@ -25,7 +25,6 @@ while stop:
         afficheSurEcran("Vous avez choisi la trace "+str(numTrace))
         trace = gpx2.GpxToArray(file[numTrace-1]) # Obtaining the trace in table form
         startPos = get_position()
-        print(type(startPos))
         if nav2.canStart(trace,startPos[0],startPos[1]) == True: # The user can start the trace
             nav2.navigation(trace) # Calculation and display of the direction to follow
             afficheSurEcran("La trace est terminee")

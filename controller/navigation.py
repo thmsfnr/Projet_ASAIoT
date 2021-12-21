@@ -19,7 +19,7 @@ class nav:
         """Return if the navigation can start"""
 
         res = False
-        if ((abs(trace[0])>=abs(lat)-1.0) and (abs(trace[0])<=abs(lat)+1.0)) and ((abs(trace[1])>=abs(lon)-1.0) and (abs(trace[1])<=abs(lon)+1.0)): #  The user is at minus 1 or plus 1 of the starting latitude and longitude of the trace
+        if (((trace[0])>=(lat)-1.0) and ((trace[0])<=(lat)+1.0)) and (((trace[1])>=(lon)-1.0) and ((trace[1])<=(lon)+1.0)): #  The user is at minus 1 or plus 1 of the starting latitude and longitude of the trace
             res = True
         return res # Bool
 
@@ -27,7 +27,7 @@ class nav:
         """Return if the user has completed the trace"""
 
         res = False
-        if ((trace[len(trace)-2]>=lat-1) and (trace[len(trace)-2]<=lat+1)) and ((trace[len(trace)-1]>=lon-1) and (trace[len(trace)-1]<=lon+1)): # The user is at minus 1 or plus 1 of the end latitude and longitude of the trace
+        if ((trace[len(trace)-2]>=lat-0) and (trace[len(trace)-2]<=lat+0)) and ((trace[len(trace)-1]>=lon-0) and (trace[len(trace)-1]<=lon+0)): # The user is at minus 1 or plus 1 of the end latitude and longitude of the trace
             res = True
         return res # Bool
 
@@ -41,6 +41,9 @@ class nav:
                 res.append(trace[cpt])
                 res.append(trace[cpt+1])
             cpt += 2
+        if len(res) == 0:
+            res.append(trace[0])
+            res.append(trace[1])
         return res # Array
 
     def speedToDistance(self,speedAvg,duration):
@@ -178,18 +181,23 @@ class nav:
     def navigation(self,trace):
         """Full navigation management"""
 
-        lat=0
-        lon=0
+        lat=position()[0]
+        lon=position()[1]
         orientation=getOrientation()
         while (self.isFinish(trace,lat,lon) == False): # The user has not completed the trace
+            print(lat)
+            print(lon)
+            print(trace)
+            print(orientation)
             pointSuivant = self.nextPoint(trace,lat,lon)
+            print(pointSuivant)
             nav2i = self.direction(pointSuivant,lat,lon,orientation)
             print(nav2i) # Direction to follow
             time.sleep(2)
-            lat=0
-            lon=0
+            lat=position()[0]
+            lon=position()[1]
             orientation=getOrientation()
-        print("Vous etes arrive")
+        #print("Vous etes arrive")
 
     def directionWithoutGps(self,nextPoint,lat,lon,orientation,dist):
         """Return the direction to follow to continue the trace"""
