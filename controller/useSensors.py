@@ -33,4 +33,3 @@ def ChoixTrace():
 
 def position():
     return get_position()
-

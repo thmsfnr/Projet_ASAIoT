@@ -7,7 +7,7 @@ import time
 """Initialisation of main parameters"""
 stop = True
 listeTrace=[1]
-file = ["/home/pi/Projet_ASAIoT/Examples_GPX/2021-11-08_556784540_Test.gpx"]
+file = ["/home/pi/Projet_ASAIoT/Examples_GPX/test2.gpx"]
  
 """Initialisation of the objects"""
 nav2 = nav()
@@ -24,7 +24,9 @@ while stop:
     elif numTrace in listeTrace: # The user has entered a valid num of trace
         afficheSurEcran("Vous avez choisi la trace "+str(numTrace))
         trace = gpx2.GpxToArray(file[numTrace-1]) # Obtaining the trace in table form
-        if nav2.canStart(trace,9,4) == True: # The user can start the trace
+        startPos = get_position()
+        print(type(startPos))
+        if nav2.canStart(trace,startPos[0],startPos[1]) == True: # The user can start the trace
             nav2.navigation(trace) # Calculation and display of the direction to follow
             afficheSurEcran("La trace est terminee")
             stop = False

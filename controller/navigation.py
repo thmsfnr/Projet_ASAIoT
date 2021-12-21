@@ -19,7 +19,7 @@ class nav:
         """Return if the navigation can start"""
 
         res = False
-        if (((trace[0])>=lat-1.0) and (trace[0]<=lat+1.0)) and ((trace[1]>=lon-1.0) and (trace[1]<=lon+1.0)): #  The user is at minus 1 or plus 1 of the starting latitude and longitude of the trace
+        if ((abs(trace[0])>=abs(lat)-1.0) and (abs(trace[0])<=abs(lat)+1.0)) and ((abs(trace[1])>=abs(lon)-1.0) and (abs(trace[1])<=abs(lon)+1.0)): #  The user is at minus 1 or plus 1 of the starting latitude and longitude of the trace
             res = True
         return res # Bool
 
