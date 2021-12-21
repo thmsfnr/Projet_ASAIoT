@@ -9,6 +9,7 @@ from model.LibSensors.driverI2C import *
 from model.LibSensors.groveCompass import *
 from model.LibSensors.grove_button import *
 from model.LibSensors.groveVibration import *
+from model.LibSensors.grove_gps.grove_gps_data import *
 
 #       La fonction affiche sur l'ecran lcd le texte qu'on souhaite     
 def afficheSurEcran(texte):
@@ -29,3 +30,8 @@ def vibrer(port):
 #      Faire Fonctionne le Bouton afin de choisir une trace
 def ChoixTrace():
     return Choix_trace()
+
+def position():
+    return get_position()
+
+print(position())

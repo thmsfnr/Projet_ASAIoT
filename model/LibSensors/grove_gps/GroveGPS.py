@@ -36,7 +36,7 @@ class GPS:
 			ind=GPS.inp.index('$GPGGA',5,len(GPS.inp))	#Sometimes multiple GPS data packets come into the stream. Take the data only after the last '$GPGGA' is seen
 			GPS.inp=GPS.inp[ind:]
 		except ValueError:
-			print ""
+			print("")
 		GPS.GGA=GPS.inp.split(",")	#Split the stream into individual parts
 		return [GPS.GGA]
  
@@ -60,15 +60,15 @@ while True:
 	try:
 		x=g.read()	#Read from GPS
 		[t,fix,sats,alt,lat,lat_ns,long,long_ew]=g.vals()	#Get the individial values
-		print "Time:",t,"Fix status:",fix,"Sats in view:",sats,"Altitude",alt,"Lat:",lat,lat_ns,"Long:",long,long_ew
-		s=str(t)+","+str(float(lat)/100)+","+str(float(long)/100)+"\n"	
+		print("Time:",t,"Fix status:",fix,"Sats in view:",sats,"Altitude",alt,"Lat:",lat,lat_ns,"Long:",long,long_ew)
+		s=str(t)+","+str(float(lat)/100)+","+str(float(long)/100)+"\n"
 		f.write(s)	#Save to file
 		time.sleep(2)
 	except IndexError:
-		print "Unable to read"
+		print("Unable to read")
 	except KeyboardInterrupt:
 		f.close()
-		print "Exiting"
+		print("Exiting")
 		sys.exit(0)
 	except:
-		print "Raw String appears to be empty."
+		print("Raw String appears to be empty.")
