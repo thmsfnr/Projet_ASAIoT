@@ -19,7 +19,7 @@ class nav:
         """Return if the navigation can start"""
 
         res = False
-        if (((trace[0])>=(lat)-0.001) and ((trace[0])<=(lat)+0.001)) and (((trace[1])>=(lon)-0.001) and ((trace[1])<=(lon)+0.001)): #  The user is at minus 1 or plus 1 of the starting latitude and longitude of the trace
+        if (((trace[0])>=(lat)-0.002) and ((trace[0])<=(lat)+0.002)) and (((trace[1])>=(lon)-0.002) and ((trace[1])<=(lon)+0.002)): #  The user is at minus 1 or plus 1 of the starting latitude and longitude of the trace
             res = True
         return res # Bool
 
@@ -150,15 +150,15 @@ class nav:
                     vibrer(4) # demi-tour
             else:
                 if (float(lon)-float(nextPoint[1])) < 0:
-                    vibrer(6) # à droite
+                    vibrer(5) # à droite
                 else:
-                    vibrer(5) # à gauche
+                    vibrer(6) # à gauche
         elif ((orientation>=0) and (orientation<=45)) or ((orientation>315) and (orientation<360)):
             if abs(float(lat)-float(nextPoint[0])) > abs(float(lon)-float(nextPoint[1])):
                 if (float(lat)-float(nextPoint[0])) < 0:
-                    vibrer(5)
-                else:
                     vibrer(6)
+                else:
+                    vibrer(5)
             else:
                 if (float(lon)-float(nextPoint[1])) < 0:
                     vibrer(2)
@@ -167,9 +167,9 @@ class nav:
         elif (orientation>=135) and (orientation<225):
             if abs(float(lat)-float(nextPoint[0])) > abs(float(lon)-float(nextPoint[1])):
                 if (float(lat)-float(nextPoint[0])) < 0:
-                    vibrer(6)
-                else:
                     vibrer(5)
+                else:
+                    vibrer(6)
             else:
                 if (float(lon)-float(nextPoint[1])) < 0:
                     vibrer(4)
@@ -183,9 +183,9 @@ class nav:
                     vibrer(2)
             else:
                 if (float(lon)-float(nextPoint[1])) < 0:
-                    vibrer(5)
-                else:
                     vibrer(6)
+                else:
+                    vibrer(5)
     
     def navigation(self,trace):
         """Full navigation management"""
