@@ -27,7 +27,7 @@ class nav:
         """Return if the user has completed the trace"""
 
         res = False
-        if ((trace[len(trace)-2]>=lat-0.001) and (trace[len(trace)-2]<=lat+0.001)) and ((trace[len(trace)-1]>=lon-0.001) and (trace[len(trace)-1]<=lon+0.001)): # The user is at minus 1 or plus 1 of the end latitude and longitude of the trace
+        if ((trace[len(trace)-2]>=lat-0.0001) and (trace[len(trace)-2]<=lat+0.0001)) and ((trace[len(trace)-1]>=lon-0.0001) and (trace[len(trace)-1]<=lon+0.0001)): # The user is at minus 1 or plus 1 of the end latitude and longitude of the trace
             res = True
         return res # Bool
 
@@ -37,15 +37,18 @@ class nav:
         res = []
         cpt = 2
         while (cpt<len(trace)-1) and (len(res)<4):
-            if (float(lat)<=float(trace[cpt]) and float(lat)>=float(trace[cpt-2])) and (float(lon)<=float(trace[cpt+1]) and float(lon)>=float(trace[cpt-1])): # The user is located between these two latitudes and these two longitudes
+            if (((lat)>=(trace[cpt]) and (lat)<=(trace[cpt-2])) or ((lat)<=(trace[cpt]) and (lat)>=(trace[cpt-2]))) and (((lon)>=(trace[cpt-1]) and (lon)<=(trace[cpt+1])) or ((lon)<=(trace[cpt-1]) and (lon)>=(trace[cpt+1]))): # The user is located between these two latitudes and these two longitudes
                 res.append(trace[cpt])
                 res.append(trace[cpt+1])
-            elif (float(lat)<=float(trace[cpt]) and float(lat)>=float(trace[cpt-2])) and (float(lon)<=float(trace[cpt+1])+0.01) and (float(lon)>=float(trace[cpt-1])-0.01):
+                print("ok")
+            elif (((lat)>=(trace[cpt]) and (lat)<=(trace[cpt-2])) or ((lat)<=(trace[cpt]) and (lat)>=(trace[cpt-2]))) and ((((lon)<=(trace[cpt+1])+0.01) and ((lon)>=(trace[cpt-1])-0.01)) or (((lon)>=(trace[cpt+1])-0.01) and ((lon)<=(trace[cpt-1])+0.01))):
                 res.append(trace[cpt])
                 res.append(trace[cpt+1])
-            elif (float(lat)<=float(trace[cpt])+0.01 and float(lat)>=float(trace[cpt-2])-0.01) and (float(lon)<=float(trace[cpt+1])) and (float(lon)>=float(trace[cpt-1])):
+                print("ok1")
+            elif (((lon)>=(trace[cpt-1]) and (lon)<=(trace[cpt+1])) or ((lon)<=(trace[cpt-1]) and (lon)>=(trace[cpt+1]))) and ((((lat)<=(trace[cpt])+0.01) and ((lat)>=(trace[cpt-2])-0.01)) or (((lat)>=(trace[cpt])-0.01) and ((lat)<=(trace[cpt-2])+0.01))):
                 res.append(trace[cpt])
                 res.append(trace[cpt+1])
+                print("ok2")
             cpt += 2
         if len(res) == 0:
             res.append(trace[0])
