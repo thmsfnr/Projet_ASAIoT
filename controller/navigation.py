@@ -19,7 +19,7 @@ class nav:
         """Return if the navigation can start"""
 
         res = False
-        if (((trace[0])>=(lat)-1.0) and ((trace[0])<=(lat)+1.0)) and (((trace[1])>=(lon)-1.0) and ((trace[1])<=(lon)+1.0)): #  The user is at minus 1 or plus 1 of the starting latitude and longitude of the trace
+        if (((trace[0])>=(lat)-0.001) and ((trace[0])<=(lat)+0.001)) and (((trace[1])>=(lon)-0.001) and ((trace[1])<=(lon)+0.001)): #  The user is at minus 1 or plus 1 of the starting latitude and longitude of the trace
             res = True
         return res # Bool
 
@@ -27,7 +27,7 @@ class nav:
         """Return if the user has completed the trace"""
 
         res = False
-        if ((trace[len(trace)-2]>=lat-0) and (trace[len(trace)-2]<=lat+0)) and ((trace[len(trace)-1]>=lon-0) and (trace[len(trace)-1]<=lon+0)): # The user is at minus 1 or plus 1 of the end latitude and longitude of the trace
+        if ((trace[len(trace)-2]>=lat-0.001) and (trace[len(trace)-2]<=lat+0.001)) and ((trace[len(trace)-1]>=lon-0.001) and (trace[len(trace)-1]<=lon+0.001)): # The user is at minus 1 or plus 1 of the end latitude and longitude of the trace
             res = True
         return res # Bool
 
@@ -38,6 +38,12 @@ class nav:
         cpt = 2
         while (cpt<len(trace)-1) and (len(res)<4):
             if (float(lat)<=float(trace[cpt]) and float(lat)>=float(trace[cpt-2])) and (float(lon)<=float(trace[cpt+1]) and float(lon)>=float(trace[cpt-1])): # The user is located between these two latitudes and these two longitudes
+                res.append(trace[cpt])
+                res.append(trace[cpt+1])
+            elif (float(lat)<=float(trace[cpt]) and float(lat)>=float(trace[cpt-2])) and (float(lon)<=float(trace[cpt+1])+0.01) and (float(lon)>=float(trace[cpt-1])-0.01):
+                res.append(trace[cpt])
+                res.append(trace[cpt+1])
+            elif (float(lat)<=float(trace[cpt])+0.01 and float(lat)>=float(trace[cpt-2])-0.01) and (float(lon)<=float(trace[cpt+1])) and (float(lon)>=float(trace[cpt-1])):
                 res.append(trace[cpt])
                 res.append(trace[cpt+1])
             cpt += 2
