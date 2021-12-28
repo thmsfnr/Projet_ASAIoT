@@ -41,14 +41,15 @@ class nav:
                 res.append(trace[cpt])
                 res.append(trace[cpt+1])
                 print("ok")
-            elif (((lat)>=(trace[cpt]) and (lat)<=(trace[cpt-2])) or ((lat)<=(trace[cpt]) and (lat)>=(trace[cpt-2]))) and ((((lon)<=(trace[cpt+1])+0.01) and ((lon)>=(trace[cpt-1])-0.01)) or (((lon)>=(trace[cpt+1])-0.01) and ((lon)<=(trace[cpt-1])+0.01))):
-                res.append(trace[cpt])
-                res.append(trace[cpt+1])
-                print("ok1")
-            elif (((lon)>=(trace[cpt-1]) and (lon)<=(trace[cpt+1])) or ((lon)<=(trace[cpt-1]) and (lon)>=(trace[cpt+1]))) and ((((lat)<=(trace[cpt])+0.01) and ((lat)>=(trace[cpt-2])-0.01)) or (((lat)>=(trace[cpt])-0.01) and ((lat)<=(trace[cpt-2])+0.01))):
-                res.append(trace[cpt])
-                res.append(trace[cpt+1])
-                print("ok2")
+            else:
+                if (((lat)>=(trace[cpt]) and (lat)<=(trace[cpt-2])) or ((lat)<=(trace[cpt]) and (lat)>=(trace[cpt-2]))) and ((((lon)<=(trace[cpt+1])+0.01) and ((lon)>=(trace[cpt-1])-0.01)) or (((lon)>=(trace[cpt+1])-0.01) and ((lon)<=(trace[cpt-1])+0.01))):
+                    res.append(trace[cpt])
+                    res.append(trace[cpt+1])
+                    print("ok1")
+                elif (((lon)>=(trace[cpt-1]) and (lon)<=(trace[cpt+1])) or ((lon)<=(trace[cpt-1]) and (lon)>=(trace[cpt+1]))) and ((((lat)<=(trace[cpt])+0.01) and ((lat)>=(trace[cpt-2])-0.01)) or (((lat)>=(trace[cpt])-0.01) and ((lat)<=(trace[cpt-2])+0.01))):
+                    res.append(trace[cpt])
+                    res.append(trace[cpt+1])
+                    print("ok2")
             cpt += 2
         if len(res) == 0:
             res.append(trace[0])
