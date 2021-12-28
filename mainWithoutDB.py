@@ -2,7 +2,6 @@ from model.operationGPX import GPX
 from controller.navigation import nav
 from view.interactionUser import User
 from controller.useSensors import *
-import time
 
 """Initialisation of main parameters"""
 stop = True

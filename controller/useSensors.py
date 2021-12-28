@@ -10,26 +10,33 @@ from model.LibSensors.groveCompass import *
 from model.LibSensors.grove_button import *
 from model.LibSensors.groveVibration import *
 from model.LibSensors.grove_gps.grove_gps_data import *
+  
+def afficheSurEcran(text):
+    """Display the desired text on the lcd screen"""
 
-#       La fonction affiche sur l'ecran lcd le texte qu'on souhaite     
-def afficheSurEcran(texte):
-    setText(texte)
+    setText(text)
 
-#       La fonction Change la couleur de l'ecran LCD
-def changerCouleur(couleur):
-    setColor(couleur)
+def changerCouleur(color):
+    """Change the colour of the LCD screen"""
 
-#       La fonction renvoie l'orientation du livreur    
+    setColor(color)
+
 def orientation():
+    """Return the orientation of the deliverer"""
+
     return getOrientation()
 
-#       faire vibrer le vibreur qui correspond aux port 
 def vibrer(port):
+    """Vibrate the vibrator that corresponds to the port"""
+
     Vibrer(port)
 
-#      Faire Fonctionne le Bouton afin de choisir une trace
 def ChoixTrace():
+    """Operate the Button to select a track"""
+
     return Choix_trace()
 
 def position():
+    """Return the position of the deliverer"""
+
     return get_position()

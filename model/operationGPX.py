@@ -47,16 +47,4 @@ class GPX:
             trace.append(requete[i][0])
             trace.append(requete[i][1])
         return trace # Array
-
-    def convertDegreeToMeter(self,trace):
-        """Convert a tab of latitude and longitude in degree into meter"""
-
-        res = [0]
-        for i in range(0,len(trace)-1,2):
-            distLat = abs((trace[i]* 111,32)-(trace[i+2]* 111,32))
-            distLon = abs((40075 * (math.cos(trace[i])/360))-(40075 * (math.cos(trace[i+2])/360)))
-            dist = math.sqrt(distLat**2)+math.sqrt(distLon**2)
-            res.append(dist)
-        return res
-
   

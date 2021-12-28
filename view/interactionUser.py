@@ -31,16 +31,16 @@ class User:
 
         afficheSurEcran("1 : Entrepot -> 2 Rue Papin")
         numTrace = ChoixTrace()
-        return numTrace
+        return numTrace # Int 
 
     def chooseTraceDB(self):
-        """Ask to the user to choose a trace"""
+        """Ask to the user to choose a trace which is in the database"""
 
         cpt = 1
         for i in db.selectAllNameTrace:
             afficheSurEcran(str(cpt) + str(i))
             cpt+=1
         numTrace = ChoixTrace()
-        return numTrace
+        return numTrace # Int
     
 

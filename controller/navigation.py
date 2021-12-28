@@ -55,42 +55,10 @@ class nav:
             res.append(trace[1])
         return res # Array
 
-    def speedToDistance(self,speedAvg,duration):
-        """Calculate a distance with an average speed an a duration"""
-        
-        return speedAvg/duration
-
-    def calcSpeedAvg(self,currentSpeed,prevSpeedAvg):
-        """Calculate the current average speed"""
-
-        return (currentSpeed+prevSpeedAvg)/2
-
-    def indexMeter(self,distance,trace):
-        """Find the current position"""
-        
-        res = 0
-        cpt = 1
-        while (cpt<len(trace)-1) and (res==0):
-            if (distance<=trace[cpt]) and (distance<=trace[cpt+1]): 
-                res = cpt
-            cpt += 1
-        return res
-
-    def placeGpx(self,index,trace):
-        """Find the latitude and longitude associated with an index"""
-
-        res = []
-        cpt = 2
-        while (cpt<len(trace)-1) and (len(res)<2):
-            if (cpt/2) == index: 
-                res.append(trace[cpt])
-                res.append(trace[cpt+1])
-            cpt += 2
-        return res 
-
     def directionTerminal(self,nextPoint,lat,lon,orientation):
-        """Return the direction to follow to continue the trace"""
-        """Nord = 0, East = 90, West = 270, South = 180"""
+        """Return the direction to follow to continue the trace in the terminal"""
+        
+        # Nord = 0, East = 90, West = 270, South = 180
         
         if (orientation>45) and (orientation<135):
             if abs(float(lat)-float(nextPoint[0])) > abs(float(lon)-float(nextPoint[1])):
@@ -139,8 +107,9 @@ class nav:
     
     
     def direction(self,nextPoint,lat,lon,orientation):
-        """Return the direction to follow to continue the trace"""
-        """Nord = 0, East = 90, West = 270, South = 180"""
+        """Return the direction to follow to continue the trace with the vibrators"""
+        
+        # Nord = 0, East = 90, West = 270, South = 180
         
         if (orientation>45) and (orientation<135):
             if abs(float(lat)-float(nextPoint[0])) > abs(float(lon)-float(nextPoint[1])):
@@ -206,72 +175,4 @@ class nav:
             lat=position()[0]
             lon=position()[1]
             orientation=getOrientation()
-        #print("Vous etes arrive")
-
-    def directionWithoutGps(self,nextPoint,lat,lon,orientation,dist):
-        """Return the direction to follow to continue the trace"""
-        """Nord = 0, East = 90, West = 270, South = 180"""
-        
-        res = []
-        if (orientation>45) and (orientation<135):
-            if abs(float(lat)-float(nextPoint[0])) > abs(float(lon)-float(nextPoint[1])):
-                if (float(lat)-float(nextPoint[0])) < 0:
-                    res.append(2)
-                else:
-                    res.append(4)
-            else:
-                if (float(lon)-float(nextPoint[1])) < 0:
-                    res.append(6)
-                else:
-                    res.append(5)
-        elif ((orientation>=0) and (orientation<=45)) or ((orientation>315) and (orientation<360)):
-            if abs(float(lat)-float(nextPoint[0])) > abs(float(lon)-float(nextPoint[1])):
-                if (float(lat)-float(nextPoint[0])) < 0:
-                    res.append(5)
-                else:
-                    res.append(6)
-            else:
-                if (float(lon)-float(nextPoint[1])) < 0:
-                    res.append(2)
-                else:
-                    res.append(4)
-        elif (orientation>=135) and (orientation<225):
-            if abs(float(lat)-float(nextPoint[0])) > abs(float(lon)-float(nextPoint[1])):
-                if (float(lat)-float(nextPoint[0])) < 0:
-                    res.append(6)
-                else:
-                    res.append(5)
-            else:
-                if (float(lon)-float(nextPoint[1])) < 0:
-                    res.append(4)
-                else:
-                    res.append(2)
-        elif (orientation>=225) and (orientation<=315):
-            if abs(float(lat)-float(nextPoint[0])) > abs(float(lon)-float(nextPoint[1])):
-                if (float(lat)-float(nextPoint[0])) < 0:
-                    res.append(4)
-                else:
-                    res.append(2)
-            else:
-                if (float(lon)-float(nextPoint[1])) < 0:
-                    res.append(5)
-                else:
-                    res.append(6)
-
-    def navigationWithoutGps(self,trace):
-        """Full navigation management without gps"""
-
-        dist = 0
-        """
-        while (dist <= lengthTrace(trace)):
-            orientation=getOrientation()
-            pos = self.placeGpx(self.indexMeter(dist,trace))
-            nextPoint = self.nextPoint(trace,pos[0],pos[1])
-            direction = self.directionWithoutGps(nextPoint,pos[0],pos[1],orientation,dist)
-            if """
-            
-
-
-        # Tant que dist n'est pas égale à la longeur de la trace
-            # obtenir point suivant
-            # obtenir direction
+        print("Vous etes arrive")

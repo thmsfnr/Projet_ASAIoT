@@ -2,7 +2,6 @@ from model.operationGPX import GPX
 from controller.navigation import nav
 from view.interactionUser import User
 from model.interactionDB import DB
-import time
 
 """Initialisation of the objects"""
 nav2 = nav()
@@ -13,7 +12,6 @@ db = DB()
 gpx2.GPXToDB("/home/pi/Projet_ASAIoT/Examples_GPX/2021-11-08_556784540_Test.gpx","1 : Entrepot -> 2 Rue Papin")
 
 """Initialisation of main parameters"""
-"""test"""
 stop = True
 listeTrace=db.selectAllIdTrace()
 
