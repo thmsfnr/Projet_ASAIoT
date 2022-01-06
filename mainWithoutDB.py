@@ -6,7 +6,7 @@ from controller.useSensors import *
 """Initialisation of main parameters"""
 stop = True
 listeTrace=[1]
-file = ["/home/pi/Projet_ASAIoT/Examples_GPX/campus.gpx"]
+file = ["/home/pi/Projet_GIPI/Examples_GPX/campus.gpx"]
  
 """Initialisation of the objects"""
 nav2 = nav()
