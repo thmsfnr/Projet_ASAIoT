@@ -1,55 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" version="1.1" creator="https://gpx.studio">
-<metadata>
-    <name>new</name>
-    <author>
-        <name>gpx.studio</name>
-        <link href="https://gpx.studio"></link>
-    </author>
-</metadata>
-<trk>
-    <name>new</name>
-    <type>Cycling</type>
-    <trkseg>
-    <trkpt lat="43.63347192988889" lon="3.8626196980476384">
-        <ele>55.2</ele>
-    </trkpt>
-    <trkpt lat="43.63347192988889" lon="3.8626196980476384">
-        <ele>55.2</ele>
-    </trkpt>
-    <trkpt lat="43.633472" lon="3.86262">
-        <ele>53.0</ele>
-    </trkpt>
-    <trkpt lat="43.633011" lon="3.861021">
-        <ele>48.4</ele>
-    </trkpt>
-    <trkpt lat="43.633011" lon="3.861021">
-        <ele>48.4</ele>
-    </trkpt>
-    <trkpt lat="43.632991" lon="3.860943">
-        <ele>48.1</ele>
-    </trkpt>
-    <trkpt lat="43.632989" lon="3.860831">
-        <ele>48.0</ele>
-    </trkpt>
-    <trkpt lat="43.63302" lon="3.860769">
-        <ele>48.0</ele>
-    </trkpt>
-    <trkpt lat="43.633246" lon="3.860644">
-        <ele>48.5</ele>
-    </trkpt>
-    <trkpt lat="43.633287" lon="3.86055">
-        <ele>48.7</ele>
-    </trkpt>
-    <trkpt lat="43.633341" lon="3.860539">
-        <ele>50.1</ele>
-    </trkpt>
-    <trkpt lat="43.633497" lon="3.860399">
-        <ele>50.5</ele>
-    </trkpt>
-    <trkpt lat="43.634051" lon="3.860269">
-        <ele>51.7</ele>
-    </trkpt>
-    </trkseg>
-</trk>
+<gpx>
+    <metadata>
+        <name>new</name>
+        <author>
+            <name>gpx.studio</name>
+            <link href="https://gpx.studio"></link>
+        </author>
+    </metadata>
+    <trk>
+        <name>new</name>
+        <trkseg>
+            <trkpt lat="43.63347192988889" lon="3.8626196980476384">
+                <ele>55.2</ele>
+            </trkpt>
+            <trkpt lat="43.63347192988889" lon="3.8626196980476384">
+                <ele>55.2</ele>
+            </trkpt>
+            <trkpt lat="43.633472" lon="3.86262">
+                <ele>53.0</ele>
+            </trkpt>
+            <trkpt lat="43.633011" lon="3.861021">
+                <ele>48.4</ele>
+            </trkpt>
+            <trkpt lat="43.633011" lon="3.861021">
+                <ele>48.4</ele>
+            </trkpt>
+            <trkpt lat="43.632991" lon="3.860943">
+                <ele>48.1</ele>
+            </trkpt>
+            <trkpt lat="43.632989" lon="3.860831">
+                <ele>48.0</ele>
+            </trkpt>
+            <trkpt lat="43.63302" lon="3.860769">
+                <ele>48.0</ele>
+            </trkpt>
+            <trkpt lat="43.633246" lon="3.860644">
+                <ele>48.5</ele>
+            </trkpt>
+            <trkpt lat="43.633287" lon="3.86055">
+                <ele>48.7</ele>
+            </trkpt>
+            <trkpt lat="43.633341" lon="3.860539">
+                <ele>50.1</ele>
+            </trkpt>
+            <trkpt lat="43.633497" lon="3.860399">
+                <ele>50.5</ele>
+            </trkpt>
+            <trkpt lat="43.634051" lon="3.860269">
+                <ele>51.7</ele>
+            </trkpt>
+        </trkseg>
+    </trk>
 </gpx>
