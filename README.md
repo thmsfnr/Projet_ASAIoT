@@ -1,13 +1,12 @@
-### Projet_ASAIoT ###
 
-# Description : #
+### Project_ASAIoT ###
 
-Notre projet, nommé GIPI, peut être défini comme étant un GPS pour vélo nouvelle génération. Effectivement, afin d’assurer la sécurité de son utilisateur, il transmet les indications de guidage par vibrations spatialisées.
-Cette idée se base sur une problématique qui se présente très fréquemment dans la vie quotidienne d’une personne travaillant dans le domaine de la livraison (nourriture, colis postaux, etc). En effet, actuellement, le vélo est un des moyens de transport les plus utilisés par les livreurs pour effectuer leur activité professionnelle. Dans ce cadre là, ils se rendent à leur destination en suivant les indications de guidage affichés sur leur téléphone. Malheureusement, circuler en toute sécurité tout en s’assurant de suivre le bon itinéraire n’est pas possible. Effectivement, cela expose les livreurs à des accidents, surtout en sachant qu’ils circulent à côté de véhicules motorisés plus imposants qu’eux. La question est donc, comment permettre aux livreurs à vélo de se rendre à une destination inconnue sans risque ?
-Et bien notre projet à pour objectif de résoudre cette problématique en permettant aux livreurs de parcourir un chemin jusqu’à une destination sans avoir à suivre des indications visuelles. Pour cela, le livreur sera équipé d’une ceinture réglable autour du torse ou de la taille composé d’un boîtier électronique permettant de choisir un itinéraire ainsi que de quatre vibreurs, placés à chaque extrémité de la ceinture, ayant pour rôle de transmettre les indications de guidage sans avoir quitter la route des yeux.
+# Description: #
 
-# Scénarii d’utilisation : #
+Our project, named GIPI, can be defined as a new generation GPS for bicycles. Indeed, in order to ensure the safety of its user, it transmits the guidance indications by spatialized vibrations.
+This idea is based on a problem that arises very frequently in the daily life of a person working in the field of delivery (food, postal parcels, etc.). Indeed, currently, the bicycle is one of the means of transport most used by delivery people to carry out their professional activity. In this context, they get to their destination by following the directions displayed on their phone. Unfortunately, driving safely while ensuring that they follow the correct route is not possible. Indeed, it exposes delivery drivers to accidents, especially knowing that they are driving alongside larger motorised vehicles. So the question is, how can we enable delivery drivers to get to an unknown destination without risk?
+Well, our project aims to solve this problem by allowing delivery drivers to follow a path to a destination without having to follow visual directions. To do this, the driver will be equipped with an adjustable belt around the torso or waist, consisting of an electronic box that allows him to choose a route and four vibrators, placed at each end of the belt, whose role is to transmit guidance without having to take his eyes off the road.
 
-Le scénario d’utilisation nominal de notre projet est assez simple. En effet, nous nous plaçons dans le cas d’un livreur souhaitant  se rendre à un point d’arrivée sans connaître le chemin à suivre. Notre solution consiste à lui demander de sélectionner une trace ayant été préalablement ajoutée dans une base de donnée par l’entreprise qui l’emploie. Une fois cette trace sélectionnée, le guidage peut commencer. Cette situation se traduit alors par le schéma suivant :
+# Usage scenarios: #
 
-
+The nominal use scenario of our project is quite simple. Indeed, we place ourselves in the case of a delivery person wishing to go to an arrival point without knowing the path to follow. Our solution consists of asking him to select a route that has been previously added to a database by the company that employs him. Once this track has been selected, the guidance can begin.
